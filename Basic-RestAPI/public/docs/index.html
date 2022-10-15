@@ -1,0 +1,1491 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Laravel Documentation</title>
+
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../docs/css/theme-default.style.css" media="screen">
+    <link rel="stylesheet" href="../docs/css/theme-default.print.css" media="print">
+
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+
+    <link rel="stylesheet"
+          href="https://unpkg.com/@highlightjs/cdn-assets@10.7.2/styles/obsidian.min.css">
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@10.7.2/highlight.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jets/0.14.1/jets.min.js"></script>
+
+    <style id="language-style">
+        /* starts out as display none and is replaced with js later  */
+                    body .content .bash-example code { display: none; }
+                    body .content .javascript-example code { display: none; }
+            </style>
+
+    <script>
+        var baseUrl = "http://localhost:8000";
+        var useCsrf = Boolean();
+        var csrfUrl = "/sanctum/csrf-cookie";
+    </script>
+    <script src="../docs/js/tryitout-4.0.0.js"></script>
+
+    <script src="../docs/js/theme-default-4.0.0.js"></script>
+
+</head>
+
+<body data-languages="[&quot;bash&quot;,&quot;javascript&quot;]">
+
+<a href="#" id="nav-button">
+    <span>
+        MENU
+        <img src="../docs/images/navbar.png" alt="navbar-image" />
+    </span>
+</a>
+<div class="tocify-wrapper">
+    
+            <div class="lang-selector">
+                                            <button type="button" class="lang-button" data-language-name="bash">bash</button>
+                                            <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
+                    </div>
+    
+    <div class="search">
+        <input type="text" class="search" id="input-search" placeholder="Search">
+    </div>
+
+    <div id="toc">
+                    <ul id="tocify-header-introduction" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="introduction">
+                    <a href="#introduction">Introduction</a>
+                </li>
+                            </ul>
+                    <ul id="tocify-header-authenticating-requests" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="authenticating-requests">
+                    <a href="#authenticating-requests">Authenticating requests</a>
+                </li>
+                            </ul>
+                    <ul id="tocify-header-endpoints" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="endpoints">
+                    <a href="#endpoints">Endpoints</a>
+                </li>
+                                    <ul id="tocify-subheader-endpoints" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="endpoints-GETapi-products">
+                                <a href="#endpoints-GETapi-products">GET api/products</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-product-add">
+                                <a href="#endpoints-POSTapi-product-add">POST api/product/add</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-products--product_id-">
+                                <a href="#endpoints-GETapi-products--product_id-">GET api/products/{product_id}</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-products--category--category">
+                                <a href="#endpoints-GETapi-products--category--category">GET api/products/{category}/category</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-PUTapi-products--product_id--update">
+                                <a href="#endpoints-PUTapi-products--product_id--update">PUT api/products/{product_id}/update</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-products--product_id--delete">
+                                <a href="#endpoints-DELETEapi-products--product_id--delete">DELETE api/products/{product_id}/delete</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-products--title--search">
+                                <a href="#endpoints-GETapi-products--title--search">GET api/products/{title}/search</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-products-category-categories">
+                                <a href="#endpoints-GETapi-products-category-categories">GET api/products/category/categories</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-products-category--category_name-">
+                                <a href="#endpoints-GETapi-products-category--category_name-">GET api/products/category/{category_name}</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-user">
+                                <a href="#endpoints-GETapi-user">GET api/user</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
+            </div>
+
+            <ul class="toc-footer" id="toc-footer">
+                            <li><a href="../docs/collection.json">View Postman collection</a></li>
+                            <li><a href="../docs/openapi.yaml">View OpenAPI spec</a></li>
+                            <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
+                    </ul>
+        <ul class="toc-footer" id="last-updated">
+        <li>Last updated: October 15 2022</li>
+    </ul>
+</div>
+
+<div class="page-wrapper">
+    <div class="dark-box"></div>
+    <div class="content">
+        <h1 id="introduction">Introduction</h1>
+<p>This documentation aims to provide all the information you need to work with our API.</p>
+<aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
+You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</aside>
+<blockquote>
+<p>Base URL</p>
+</blockquote>
+<pre><code class="language-yaml">http://localhost:8000</code></pre>
+
+        <h1 id="authenticating-requests">Authenticating requests</h1>
+<p>This API is not authenticated.</p>
+
+        <h1 id="endpoints">Endpoints</h1>
+
+    
+
+                                <h2 id="endpoints-GETapi-products">GET api/products</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-products">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/products" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/products"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-products">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;products&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;title&quot;: &quot;Adaptive 4thgeneration groupware&quot;,
+            &quot;description&quot;: &quot;Unde voluptatem et architecto laborum dolore quia ut quis ut.&quot;,
+            &quot;currency&quot;: &quot;sint&quot;,
+            &quot;price&quot;: 60,
+            &quot;brand&quot;: &quot;Facetoface secondary internetsolution&quot;,
+            &quot;category&quot;: &quot;Books&quot;,
+            &quot;image&quot;: &quot;http://pouros.biz/non-at-corrupti-et-dicta-aut-magni-velit.html&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:16:10.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:16:10.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;title&quot;: &quot;Cloned exuding forecast&quot;,
+            &quot;description&quot;: &quot;Similique et dignissimos et illo modi voluptas.&quot;,
+            &quot;currency&quot;: &quot;dicta&quot;,
+            &quot;price&quot;: 6,
+            &quot;brand&quot;: &quot;Expanded secondary synergy&quot;,
+            &quot;category&quot;: &quot;Artworks&quot;,
+            &quot;image&quot;: &quot;http://harber.biz/iure-est-dolorem-recusandae-magni-esse-vero-et-accusantium.html&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:16:10.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:16:10.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 3,
+            &quot;title&quot;: &quot;Universal heuristic migration&quot;,
+            &quot;description&quot;: &quot;Possimus quos aspernatur sint enim voluptas animi et rem.&quot;,
+            &quot;currency&quot;: &quot;rerum&quot;,
+            &quot;price&quot;: 24577678,
+            &quot;brand&quot;: &quot;Decentralized explicit processimprovement&quot;,
+            &quot;category&quot;: &quot;Devices&quot;,
+            &quot;image&quot;: &quot;https://konopelski.com/et-quis-tempore-maxime-porro-aliquam.html&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:16:10.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:16:10.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 4,
+            &quot;title&quot;: &quot;Re-engineered cohesive matrices&quot;,
+            &quot;description&quot;: &quot;Placeat quis inventore nisi aut exercitationem tenetur consectetur exercitationem.&quot;,
+            &quot;currency&quot;: &quot;qui&quot;,
+            &quot;price&quot;: 81106348,
+            &quot;brand&quot;: &quot;Focused fault-tolerant matrices&quot;,
+            &quot;category&quot;: &quot;Devices&quot;,
+            &quot;image&quot;: &quot;http://www.leuschke.com/error-et-deleniti-voluptatem-aliquid-ut-quibusdam-omnis-aut&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:16:10.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:16:10.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 5,
+            &quot;title&quot;: &quot;Persevering analyzing internetsolution&quot;,
+            &quot;description&quot;: &quot;Numquam reiciendis molestiae debitis itaque omnis consequatur.&quot;,
+            &quot;currency&quot;: &quot;omnis&quot;,
+            &quot;price&quot;: 5789313,
+            &quot;brand&quot;: &quot;Synchronised real-time monitoring&quot;,
+            &quot;category&quot;: &quot;Devices&quot;,
+            &quot;image&quot;: &quot;https://davis.com/eos-voluptas-odit-impedit.html&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:16:10.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:16:10.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 6,
+            &quot;title&quot;: &quot;Synergistic global website&quot;,
+            &quot;description&quot;: &quot;Alias sint dolor pariatur rerum ea.&quot;,
+            &quot;currency&quot;: &quot;sint&quot;,
+            &quot;price&quot;: 3,
+            &quot;brand&quot;: &quot;Intuitive assymetric product&quot;,
+            &quot;category&quot;: &quot;Devices&quot;,
+            &quot;image&quot;: &quot;http://www.ritchie.com/quidem-voluptatum-voluptates-consequatur-maiores-vero-quisquam-aut&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:16:10.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:16:10.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 7,
+            &quot;title&quot;: &quot;Profit-focused human-resource architecture&quot;,
+            &quot;description&quot;: &quot;Sunt perspiciatis tenetur rerum nulla dolorem quos repellat similique ex iste porro.&quot;,
+            &quot;currency&quot;: &quot;blanditiis&quot;,
+            &quot;price&quot;: 445460361,
+            &quot;brand&quot;: &quot;Function-based dynamic time-frame&quot;,
+            &quot;category&quot;: &quot;Clothing&quot;,
+            &quot;image&quot;: &quot;http://www.kautzer.com/&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:16:10.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:16:10.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 8,
+            &quot;title&quot;: &quot;Reduced homogeneous intranet&quot;,
+            &quot;description&quot;: &quot;Et cupiditate voluptas dolorum consequatur tenetur recusandae rerum repudiandae.&quot;,
+            &quot;currency&quot;: &quot;nesciunt&quot;,
+            &quot;price&quot;: 694,
+            &quot;brand&quot;: &quot;Programmable well-modulated definition&quot;,
+            &quot;category&quot;: &quot;Style&quot;,
+            &quot;image&quot;: &quot;http://www.kris.biz/&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:16:10.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:16:10.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 9,
+            &quot;title&quot;: &quot;Public-key foreground ability&quot;,
+            &quot;description&quot;: &quot;Voluptas aliquam tempore accusantium eaque neque consequatur adipisci.&quot;,
+            &quot;currency&quot;: &quot;aut&quot;,
+            &quot;price&quot;: 52020,
+            &quot;brand&quot;: &quot;Re-engineered well-modulated paradigm&quot;,
+            &quot;category&quot;: &quot;Style&quot;,
+            &quot;image&quot;: &quot;http://www.ward.com/non-culpa-laboriosam-illum-voluptatibus-sed-enim-eos&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:16:10.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:16:10.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 10,
+            &quot;title&quot;: &quot;Customer-focused high-level encryption&quot;,
+            &quot;description&quot;: &quot;Assumenda ipsa in nulla voluptatem ut occaecati.&quot;,
+            &quot;currency&quot;: &quot;consequatur&quot;,
+            &quot;price&quot;: 8443041,
+            &quot;brand&quot;: &quot;Grass-roots client-server knowledgeuser&quot;,
+            &quot;category&quot;: &quot;Devices&quot;,
+            &quot;image&quot;: &quot;http://www.gislason.com/natus-iure-omnis-officia-expedita-nihil-saepe-expedita-omnis&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:16:10.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:16:10.000000Z&quot;
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-products" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-products"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-products"></code></pre>
+</span>
+<span id="execution-error-GETapi-products" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-products"></code></pre>
+</span>
+<form id="form-GETapi-products" data-method="GET"
+      data-path="api/products"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-products', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-products"
+                    onclick="tryItOut('GETapi-products');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-products"
+                    onclick="cancelTryOut('GETapi-products');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-products" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/products</code></b>
+        </p>
+                    </form>
+
+                    <h2 id="endpoints-POSTapi-product-add">POST api/product/add</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-product-add">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8000/api/product/add" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/product/add"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-product-add">
+</span>
+<span id="execution-results-POSTapi-product-add" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-product-add"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-product-add"></code></pre>
+</span>
+<span id="execution-error-POSTapi-product-add" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-product-add"></code></pre>
+</span>
+<form id="form-POSTapi-product-add" data-method="POST"
+      data-path="api/product/add"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-product-add', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-product-add"
+                    onclick="tryItOut('POSTapi-product-add');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-product-add"
+                    onclick="cancelTryOut('POSTapi-product-add');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-product-add" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/product/add</code></b>
+        </p>
+                    </form>
+
+                    <h2 id="endpoints-GETapi-products--product_id-">GET api/products/{product_id}</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-products--product_id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/products/1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/products/1"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-products--product_id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 58
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;products&quot;: {
+        &quot;id&quot;: 1,
+        &quot;title&quot;: &quot;Adaptive 4thgeneration groupware&quot;,
+        &quot;description&quot;: &quot;Unde voluptatem et architecto laborum dolore quia ut quis ut.&quot;,
+        &quot;currency&quot;: &quot;sint&quot;,
+        &quot;price&quot;: 60,
+        &quot;brand&quot;: &quot;Facetoface secondary internetsolution&quot;,
+        &quot;category&quot;: &quot;Books&quot;,
+        &quot;image&quot;: &quot;http://pouros.biz/non-at-corrupti-et-dicta-aut-magni-velit.html&quot;,
+        &quot;created_at&quot;: &quot;2022-10-08T06:16:10.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2022-10-08T06:16:10.000000Z&quot;
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-products--product_id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-products--product_id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-products--product_id-"></code></pre>
+</span>
+<span id="execution-error-GETapi-products--product_id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-products--product_id-"></code></pre>
+</span>
+<form id="form-GETapi-products--product_id-" data-method="GET"
+      data-path="api/products/{product_id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-products--product_id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-products--product_id-"
+                    onclick="tryItOut('GETapi-products--product_id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-products--product_id-"
+                    onclick="cancelTryOut('GETapi-products--product_id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-products--product_id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/products/{product_id}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>product_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number"
+               name="product_id"
+               data-endpoint="GETapi-products--product_id-"
+               value="1"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the product.</p>
+            </p>
+                    </form>
+
+                    <h2 id="endpoints-GETapi-products--category--category">GET api/products/{category}/category</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-products--category--category">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/products/1/category" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/products/1/category"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-products--category--category">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 57
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">[]</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-products--category--category" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-products--category--category"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-products--category--category"></code></pre>
+</span>
+<span id="execution-error-GETapi-products--category--category" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-products--category--category"></code></pre>
+</span>
+<form id="form-GETapi-products--category--category" data-method="GET"
+      data-path="api/products/{category}/category"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-products--category--category', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-products--category--category"
+                    onclick="tryItOut('GETapi-products--category--category');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-products--category--category"
+                    onclick="cancelTryOut('GETapi-products--category--category');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-products--category--category" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/products/{category}/category</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>category</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number"
+               name="category"
+               data-endpoint="GETapi-products--category--category"
+               value="1"
+               data-component="url" hidden>
+    <br>
+
+            </p>
+                    </form>
+
+                    <h2 id="endpoints-PUTapi-products--product_id--update">PUT api/products/{product_id}/update</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-PUTapi-products--product_id--update">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://localhost:8000/api/products/1/update" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"title\": \"sed\",
+    \"description\": \"ullam\",
+    \"currency\": \"quaerat\",
+    \"price\": \"quia\",
+    \"brand\": \"ipsam\",
+    \"category\": \"odio\",
+    \"image\": \"esse\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/products/1/update"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "title": "sed",
+    "description": "ullam",
+    "currency": "quaerat",
+    "price": "quia",
+    "brand": "ipsam",
+    "category": "odio",
+    "image": "esse"
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-products--product_id--update">
+</span>
+<span id="execution-results-PUTapi-products--product_id--update" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-products--product_id--update"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-products--product_id--update"></code></pre>
+</span>
+<span id="execution-error-PUTapi-products--product_id--update" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-products--product_id--update"></code></pre>
+</span>
+<form id="form-PUTapi-products--product_id--update" data-method="PUT"
+      data-path="api/products/{product_id}/update"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-products--product_id--update', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-products--product_id--update"
+                    onclick="tryItOut('PUTapi-products--product_id--update');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-products--product_id--update"
+                    onclick="cancelTryOut('PUTapi-products--product_id--update');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-products--product_id--update" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/products/{product_id}/update</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>product_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number"
+               name="product_id"
+               data-endpoint="PUTapi-products--product_id--update"
+               value="1"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the product.</p>
+            </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>title</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="title"
+               data-endpoint="PUTapi-products--product_id--update"
+               value="sed"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>description</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="description"
+               data-endpoint="PUTapi-products--product_id--update"
+               value="ullam"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>currency</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="currency"
+               data-endpoint="PUTapi-products--product_id--update"
+               value="quaerat"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>price</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="price"
+               data-endpoint="PUTapi-products--product_id--update"
+               value="quia"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>brand</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="brand"
+               data-endpoint="PUTapi-products--product_id--update"
+               value="ipsam"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>category</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="category"
+               data-endpoint="PUTapi-products--product_id--update"
+               value="odio"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>image</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="image"
+               data-endpoint="PUTapi-products--product_id--update"
+               value="esse"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+        </form>
+
+                    <h2 id="endpoints-DELETEapi-products--product_id--delete">DELETE api/products/{product_id}/delete</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-products--product_id--delete">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://localhost:8000/api/products/1/delete" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/products/1/delete"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-products--product_id--delete">
+</span>
+<span id="execution-results-DELETEapi-products--product_id--delete" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-products--product_id--delete"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-products--product_id--delete"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-products--product_id--delete" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-products--product_id--delete"></code></pre>
+</span>
+<form id="form-DELETEapi-products--product_id--delete" data-method="DELETE"
+      data-path="api/products/{product_id}/delete"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-products--product_id--delete', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-products--product_id--delete"
+                    onclick="tryItOut('DELETEapi-products--product_id--delete');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-products--product_id--delete"
+                    onclick="cancelTryOut('DELETEapi-products--product_id--delete');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-products--product_id--delete" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/products/{product_id}/delete</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>product_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number"
+               name="product_id"
+               data-endpoint="DELETEapi-products--product_id--delete"
+               value="1"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the product.</p>
+            </p>
+                    </form>
+
+                    <h2 id="endpoints-GETapi-products--title--search">GET api/products/{title}/search</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-products--title--search">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/products/1/search" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/products/1/search"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-products--title--search">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 56
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">[]</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-products--title--search" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-products--title--search"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-products--title--search"></code></pre>
+</span>
+<span id="execution-error-GETapi-products--title--search" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-products--title--search"></code></pre>
+</span>
+<form id="form-GETapi-products--title--search" data-method="GET"
+      data-path="api/products/{title}/search"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-products--title--search', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-products--title--search"
+                    onclick="tryItOut('GETapi-products--title--search');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-products--title--search"
+                    onclick="cancelTryOut('GETapi-products--title--search');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-products--title--search" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/products/{title}/search</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>title</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number"
+               name="title"
+               data-endpoint="GETapi-products--title--search"
+               value="1"
+               data-component="url" hidden>
+    <br>
+
+            </p>
+                    </form>
+
+                    <h2 id="endpoints-GETapi-products-category-categories">GET api/products/category/categories</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-products-category-categories">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/products/category/categories" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/products/category/categories"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-products-category-categories">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 55
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;products&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;title&quot;: &quot;Adaptive 4thgeneration groupware&quot;,
+            &quot;description&quot;: &quot;Unde voluptatem et architecto laborum dolore quia ut quis ut.&quot;,
+            &quot;currency&quot;: &quot;sint&quot;,
+            &quot;price&quot;: 60,
+            &quot;brand&quot;: &quot;Facetoface secondary internetsolution&quot;,
+            &quot;category&quot;: &quot;Books&quot;,
+            &quot;image&quot;: &quot;http://pouros.biz/non-at-corrupti-et-dicta-aut-magni-velit.html&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:16:10.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:16:10.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;title&quot;: &quot;Cloned exuding forecast&quot;,
+            &quot;description&quot;: &quot;Similique et dignissimos et illo modi voluptas.&quot;,
+            &quot;currency&quot;: &quot;dicta&quot;,
+            &quot;price&quot;: 6,
+            &quot;brand&quot;: &quot;Expanded secondary synergy&quot;,
+            &quot;category&quot;: &quot;Artworks&quot;,
+            &quot;image&quot;: &quot;http://harber.biz/iure-est-dolorem-recusandae-magni-esse-vero-et-accusantium.html&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:16:10.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:16:10.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 3,
+            &quot;title&quot;: &quot;Universal heuristic migration&quot;,
+            &quot;description&quot;: &quot;Possimus quos aspernatur sint enim voluptas animi et rem.&quot;,
+            &quot;currency&quot;: &quot;rerum&quot;,
+            &quot;price&quot;: 24577678,
+            &quot;brand&quot;: &quot;Decentralized explicit processimprovement&quot;,
+            &quot;category&quot;: &quot;Devices&quot;,
+            &quot;image&quot;: &quot;https://konopelski.com/et-quis-tempore-maxime-porro-aliquam.html&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:16:10.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:16:10.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 4,
+            &quot;title&quot;: &quot;Re-engineered cohesive matrices&quot;,
+            &quot;description&quot;: &quot;Placeat quis inventore nisi aut exercitationem tenetur consectetur exercitationem.&quot;,
+            &quot;currency&quot;: &quot;qui&quot;,
+            &quot;price&quot;: 81106348,
+            &quot;brand&quot;: &quot;Focused fault-tolerant matrices&quot;,
+            &quot;category&quot;: &quot;Devices&quot;,
+            &quot;image&quot;: &quot;http://www.leuschke.com/error-et-deleniti-voluptatem-aliquid-ut-quibusdam-omnis-aut&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:16:10.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:16:10.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 5,
+            &quot;title&quot;: &quot;Persevering analyzing internetsolution&quot;,
+            &quot;description&quot;: &quot;Numquam reiciendis molestiae debitis itaque omnis consequatur.&quot;,
+            &quot;currency&quot;: &quot;omnis&quot;,
+            &quot;price&quot;: 5789313,
+            &quot;brand&quot;: &quot;Synchronised real-time monitoring&quot;,
+            &quot;category&quot;: &quot;Devices&quot;,
+            &quot;image&quot;: &quot;https://davis.com/eos-voluptas-odit-impedit.html&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:16:10.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:16:10.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 6,
+            &quot;title&quot;: &quot;Synergistic global website&quot;,
+            &quot;description&quot;: &quot;Alias sint dolor pariatur rerum ea.&quot;,
+            &quot;currency&quot;: &quot;sint&quot;,
+            &quot;price&quot;: 3,
+            &quot;brand&quot;: &quot;Intuitive assymetric product&quot;,
+            &quot;category&quot;: &quot;Devices&quot;,
+            &quot;image&quot;: &quot;http://www.ritchie.com/quidem-voluptatum-voluptates-consequatur-maiores-vero-quisquam-aut&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:16:10.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:16:10.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 7,
+            &quot;title&quot;: &quot;Profit-focused human-resource architecture&quot;,
+            &quot;description&quot;: &quot;Sunt perspiciatis tenetur rerum nulla dolorem quos repellat similique ex iste porro.&quot;,
+            &quot;currency&quot;: &quot;blanditiis&quot;,
+            &quot;price&quot;: 445460361,
+            &quot;brand&quot;: &quot;Function-based dynamic time-frame&quot;,
+            &quot;category&quot;: &quot;Clothing&quot;,
+            &quot;image&quot;: &quot;http://www.kautzer.com/&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:16:10.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:16:10.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 8,
+            &quot;title&quot;: &quot;Reduced homogeneous intranet&quot;,
+            &quot;description&quot;: &quot;Et cupiditate voluptas dolorum consequatur tenetur recusandae rerum repudiandae.&quot;,
+            &quot;currency&quot;: &quot;nesciunt&quot;,
+            &quot;price&quot;: 694,
+            &quot;brand&quot;: &quot;Programmable well-modulated definition&quot;,
+            &quot;category&quot;: &quot;Style&quot;,
+            &quot;image&quot;: &quot;http://www.kris.biz/&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:16:10.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:16:10.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 9,
+            &quot;title&quot;: &quot;Public-key foreground ability&quot;,
+            &quot;description&quot;: &quot;Voluptas aliquam tempore accusantium eaque neque consequatur adipisci.&quot;,
+            &quot;currency&quot;: &quot;aut&quot;,
+            &quot;price&quot;: 52020,
+            &quot;brand&quot;: &quot;Re-engineered well-modulated paradigm&quot;,
+            &quot;category&quot;: &quot;Style&quot;,
+            &quot;image&quot;: &quot;http://www.ward.com/non-culpa-laboriosam-illum-voluptatibus-sed-enim-eos&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:16:10.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:16:10.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 10,
+            &quot;title&quot;: &quot;Customer-focused high-level encryption&quot;,
+            &quot;description&quot;: &quot;Assumenda ipsa in nulla voluptatem ut occaecati.&quot;,
+            &quot;currency&quot;: &quot;consequatur&quot;,
+            &quot;price&quot;: 8443041,
+            &quot;brand&quot;: &quot;Grass-roots client-server knowledgeuser&quot;,
+            &quot;category&quot;: &quot;Devices&quot;,
+            &quot;image&quot;: &quot;http://www.gislason.com/natus-iure-omnis-officia-expedita-nihil-saepe-expedita-omnis&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:16:10.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:16:10.000000Z&quot;
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-products-category-categories" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-products-category-categories"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-products-category-categories"></code></pre>
+</span>
+<span id="execution-error-GETapi-products-category-categories" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-products-category-categories"></code></pre>
+</span>
+<form id="form-GETapi-products-category-categories" data-method="GET"
+      data-path="api/products/category/categories"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-products-category-categories', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-products-category-categories"
+                    onclick="tryItOut('GETapi-products-category-categories');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-products-category-categories"
+                    onclick="cancelTryOut('GETapi-products-category-categories');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-products-category-categories" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/products/category/categories</code></b>
+        </p>
+                    </form>
+
+                    <h2 id="endpoints-GETapi-products-category--category_name-">GET api/products/category/{category_name}</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-products-category--category_name-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/products/category/ea" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/products/category/ea"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-products-category--category_name-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 54
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">[]</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-products-category--category_name-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-products-category--category_name-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-products-category--category_name-"></code></pre>
+</span>
+<span id="execution-error-GETapi-products-category--category_name-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-products-category--category_name-"></code></pre>
+</span>
+<form id="form-GETapi-products-category--category_name-" data-method="GET"
+      data-path="api/products/category/{category_name}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-products-category--category_name-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-products-category--category_name-"
+                    onclick="tryItOut('GETapi-products-category--category_name-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-products-category--category_name-"
+                    onclick="cancelTryOut('GETapi-products-category--category_name-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-products-category--category_name-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/products/category/{category_name}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>category_name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="category_name"
+               data-endpoint="GETapi-products-category--category_name-"
+               value="ea"
+               data-component="url" hidden>
+    <br>
+
+            </p>
+                    </form>
+
+                    <h2 id="endpoints-GETapi-user">GET api/user</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-user">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/user" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/user"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-user">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-user" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-user"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-user"></code></pre>
+</span>
+<span id="execution-error-GETapi-user" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-user"></code></pre>
+</span>
+<form id="form-GETapi-user" data-method="GET"
+      data-path="api/user"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-user', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-user"
+                    onclick="tryItOut('GETapi-user');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-user"
+                    onclick="cancelTryOut('GETapi-user');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-user" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/user</code></b>
+        </p>
+                    </form>
+
+            
+
+        
+    </div>
+    <div class="dark-box">
+                    <div class="lang-selector">
+                                                        <button type="button" class="lang-button" data-language-name="bash">bash</button>
+                                                        <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
+                            </div>
+            </div>
+</div>
+</body>
+</html>

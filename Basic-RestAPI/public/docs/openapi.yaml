@@ -1,0 +1,879 @@
+openapi: 3.0.3
+info:
+  title: Laravel
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost:8000'
+paths:
+  /api/products:
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  products:
+                    -
+                      id: 1
+                      title: 'Adaptive 4thgeneration groupware'
+                      description: 'Unde voluptatem et architecto laborum dolore quia ut quis ut.'
+                      currency: sint
+                      price: 60
+                      brand: 'Facetoface secondary internetsolution'
+                      category: Books
+                      image: 'http://pouros.biz/non-at-corrupti-et-dicta-aut-magni-velit.html'
+                      created_at: '2022-10-08T06:16:10.000000Z'
+                      updated_at: '2022-10-08T06:16:10.000000Z'
+                    -
+                      id: 2
+                      title: 'Cloned exuding forecast'
+                      description: 'Similique et dignissimos et illo modi voluptas.'
+                      currency: dicta
+                      price: 6
+                      brand: 'Expanded secondary synergy'
+                      category: Artworks
+                      image: 'http://harber.biz/iure-est-dolorem-recusandae-magni-esse-vero-et-accusantium.html'
+                      created_at: '2022-10-08T06:16:10.000000Z'
+                      updated_at: '2022-10-08T06:16:10.000000Z'
+                    -
+                      id: 3
+                      title: 'Universal heuristic migration'
+                      description: 'Possimus quos aspernatur sint enim voluptas animi et rem.'
+                      currency: rerum
+                      price: 24577678
+                      brand: 'Decentralized explicit processimprovement'
+                      category: Devices
+                      image: 'https://konopelski.com/et-quis-tempore-maxime-porro-aliquam.html'
+                      created_at: '2022-10-08T06:16:10.000000Z'
+                      updated_at: '2022-10-08T06:16:10.000000Z'
+                    -
+                      id: 4
+                      title: 'Re-engineered cohesive matrices'
+                      description: 'Placeat quis inventore nisi aut exercitationem tenetur consectetur exercitationem.'
+                      currency: qui
+                      price: 81106348
+                      brand: 'Focused fault-tolerant matrices'
+                      category: Devices
+                      image: 'http://www.leuschke.com/error-et-deleniti-voluptatem-aliquid-ut-quibusdam-omnis-aut'
+                      created_at: '2022-10-08T06:16:10.000000Z'
+                      updated_at: '2022-10-08T06:16:10.000000Z'
+                    -
+                      id: 5
+                      title: 'Persevering analyzing internetsolution'
+                      description: 'Numquam reiciendis molestiae debitis itaque omnis consequatur.'
+                      currency: omnis
+                      price: 5789313
+                      brand: 'Synchronised real-time monitoring'
+                      category: Devices
+                      image: 'https://davis.com/eos-voluptas-odit-impedit.html'
+                      created_at: '2022-10-08T06:16:10.000000Z'
+                      updated_at: '2022-10-08T06:16:10.000000Z'
+                    -
+                      id: 6
+                      title: 'Synergistic global website'
+                      description: 'Alias sint dolor pariatur rerum ea.'
+                      currency: sint
+                      price: 3
+                      brand: 'Intuitive assymetric product'
+                      category: Devices
+                      image: 'http://www.ritchie.com/quidem-voluptatum-voluptates-consequatur-maiores-vero-quisquam-aut'
+                      created_at: '2022-10-08T06:16:10.000000Z'
+                      updated_at: '2022-10-08T06:16:10.000000Z'
+                    -
+                      id: 7
+                      title: 'Profit-focused human-resource architecture'
+                      description: 'Sunt perspiciatis tenetur rerum nulla dolorem quos repellat similique ex iste porro.'
+                      currency: blanditiis
+                      price: 445460361
+                      brand: 'Function-based dynamic time-frame'
+                      category: Clothing
+                      image: 'http://www.kautzer.com/'
+                      created_at: '2022-10-08T06:16:10.000000Z'
+                      updated_at: '2022-10-08T06:16:10.000000Z'
+                    -
+                      id: 8
+                      title: 'Reduced homogeneous intranet'
+                      description: 'Et cupiditate voluptas dolorum consequatur tenetur recusandae rerum repudiandae.'
+                      currency: nesciunt
+                      price: 694
+                      brand: 'Programmable well-modulated definition'
+                      category: Style
+                      image: 'http://www.kris.biz/'
+                      created_at: '2022-10-08T06:16:10.000000Z'
+                      updated_at: '2022-10-08T06:16:10.000000Z'
+                    -
+                      id: 9
+                      title: 'Public-key foreground ability'
+                      description: 'Voluptas aliquam tempore accusantium eaque neque consequatur adipisci.'
+                      currency: aut
+                      price: 52020
+                      brand: 'Re-engineered well-modulated paradigm'
+                      category: Style
+                      image: 'http://www.ward.com/non-culpa-laboriosam-illum-voluptatibus-sed-enim-eos'
+                      created_at: '2022-10-08T06:16:10.000000Z'
+                      updated_at: '2022-10-08T06:16:10.000000Z'
+                    -
+                      id: 10
+                      title: 'Customer-focused high-level encryption'
+                      description: 'Assumenda ipsa in nulla voluptatem ut occaecati.'
+                      currency: consequatur
+                      price: 8443041
+                      brand: 'Grass-roots client-server knowledgeuser'
+                      category: Devices
+                      image: 'http://www.gislason.com/natus-iure-omnis-officia-expedita-nihil-saepe-expedita-omnis'
+                      created_at: '2022-10-08T06:16:10.000000Z'
+                      updated_at: '2022-10-08T06:16:10.000000Z'
+                properties:
+                  products:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        title: 'Adaptive 4thgeneration groupware'
+                        description: 'Unde voluptatem et architecto laborum dolore quia ut quis ut.'
+                        currency: sint
+                        price: 60
+                        brand: 'Facetoface secondary internetsolution'
+                        category: Books
+                        image: 'http://pouros.biz/non-at-corrupti-et-dicta-aut-magni-velit.html'
+                        created_at: '2022-10-08T06:16:10.000000Z'
+                        updated_at: '2022-10-08T06:16:10.000000Z'
+                      -
+                        id: 2
+                        title: 'Cloned exuding forecast'
+                        description: 'Similique et dignissimos et illo modi voluptas.'
+                        currency: dicta
+                        price: 6
+                        brand: 'Expanded secondary synergy'
+                        category: Artworks
+                        image: 'http://harber.biz/iure-est-dolorem-recusandae-magni-esse-vero-et-accusantium.html'
+                        created_at: '2022-10-08T06:16:10.000000Z'
+                        updated_at: '2022-10-08T06:16:10.000000Z'
+                      -
+                        id: 3
+                        title: 'Universal heuristic migration'
+                        description: 'Possimus quos aspernatur sint enim voluptas animi et rem.'
+                        currency: rerum
+                        price: 24577678
+                        brand: 'Decentralized explicit processimprovement'
+                        category: Devices
+                        image: 'https://konopelski.com/et-quis-tempore-maxime-porro-aliquam.html'
+                        created_at: '2022-10-08T06:16:10.000000Z'
+                        updated_at: '2022-10-08T06:16:10.000000Z'
+                      -
+                        id: 4
+                        title: 'Re-engineered cohesive matrices'
+                        description: 'Placeat quis inventore nisi aut exercitationem tenetur consectetur exercitationem.'
+                        currency: qui
+                        price: 81106348
+                        brand: 'Focused fault-tolerant matrices'
+                        category: Devices
+                        image: 'http://www.leuschke.com/error-et-deleniti-voluptatem-aliquid-ut-quibusdam-omnis-aut'
+                        created_at: '2022-10-08T06:16:10.000000Z'
+                        updated_at: '2022-10-08T06:16:10.000000Z'
+                      -
+                        id: 5
+                        title: 'Persevering analyzing internetsolution'
+                        description: 'Numquam reiciendis molestiae debitis itaque omnis consequatur.'
+                        currency: omnis
+                        price: 5789313
+                        brand: 'Synchronised real-time monitoring'
+                        category: Devices
+                        image: 'https://davis.com/eos-voluptas-odit-impedit.html'
+                        created_at: '2022-10-08T06:16:10.000000Z'
+                        updated_at: '2022-10-08T06:16:10.000000Z'
+                      -
+                        id: 6
+                        title: 'Synergistic global website'
+                        description: 'Alias sint dolor pariatur rerum ea.'
+                        currency: sint
+                        price: 3
+                        brand: 'Intuitive assymetric product'
+                        category: Devices
+                        image: 'http://www.ritchie.com/quidem-voluptatum-voluptates-consequatur-maiores-vero-quisquam-aut'
+                        created_at: '2022-10-08T06:16:10.000000Z'
+                        updated_at: '2022-10-08T06:16:10.000000Z'
+                      -
+                        id: 7
+                        title: 'Profit-focused human-resource architecture'
+                        description: 'Sunt perspiciatis tenetur rerum nulla dolorem quos repellat similique ex iste porro.'
+                        currency: blanditiis
+                        price: 445460361
+                        brand: 'Function-based dynamic time-frame'
+                        category: Clothing
+                        image: 'http://www.kautzer.com/'
+                        created_at: '2022-10-08T06:16:10.000000Z'
+                        updated_at: '2022-10-08T06:16:10.000000Z'
+                      -
+                        id: 8
+                        title: 'Reduced homogeneous intranet'
+                        description: 'Et cupiditate voluptas dolorum consequatur tenetur recusandae rerum repudiandae.'
+                        currency: nesciunt
+                        price: 694
+                        brand: 'Programmable well-modulated definition'
+                        category: Style
+                        image: 'http://www.kris.biz/'
+                        created_at: '2022-10-08T06:16:10.000000Z'
+                        updated_at: '2022-10-08T06:16:10.000000Z'
+                      -
+                        id: 9
+                        title: 'Public-key foreground ability'
+                        description: 'Voluptas aliquam tempore accusantium eaque neque consequatur adipisci.'
+                        currency: aut
+                        price: 52020
+                        brand: 'Re-engineered well-modulated paradigm'
+                        category: Style
+                        image: 'http://www.ward.com/non-culpa-laboriosam-illum-voluptatibus-sed-enim-eos'
+                        created_at: '2022-10-08T06:16:10.000000Z'
+                        updated_at: '2022-10-08T06:16:10.000000Z'
+                      -
+                        id: 10
+                        title: 'Customer-focused high-level encryption'
+                        description: 'Assumenda ipsa in nulla voluptatem ut occaecati.'
+                        currency: consequatur
+                        price: 8443041
+                        brand: 'Grass-roots client-server knowledgeuser'
+                        category: Devices
+                        image: 'http://www.gislason.com/natus-iure-omnis-officia-expedita-nihil-saepe-expedita-omnis'
+                        created_at: '2022-10-08T06:16:10.000000Z'
+                        updated_at: '2022-10-08T06:16:10.000000Z'
+                    items:
+                      type: object
+      tags:
+        - Endpoints
+      security: []
+  /api/product/add:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  '/api/products/{product_id}':
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  products:
+                    id: 1
+                    title: 'Adaptive 4thgeneration groupware'
+                    description: 'Unde voluptatem et architecto laborum dolore quia ut quis ut.'
+                    currency: sint
+                    price: 60
+                    brand: 'Facetoface secondary internetsolution'
+                    category: Books
+                    image: 'http://pouros.biz/non-at-corrupti-et-dicta-aut-magni-velit.html'
+                    created_at: '2022-10-08T06:16:10.000000Z'
+                    updated_at: '2022-10-08T06:16:10.000000Z'
+                properties:
+                  products:
+                    type: object
+                    example:
+                      id: 1
+                      title: 'Adaptive 4thgeneration groupware'
+                      description: 'Unde voluptatem et architecto laborum dolore quia ut quis ut.'
+                      currency: sint
+                      price: 60
+                      brand: 'Facetoface secondary internetsolution'
+                      category: Books
+                      image: 'http://pouros.biz/non-at-corrupti-et-dicta-aut-magni-velit.html'
+                      created_at: '2022-10-08T06:16:10.000000Z'
+                      updated_at: '2022-10-08T06:16:10.000000Z'
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: product_id
+        description: 'The ID of the product.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/products/{category}/category':
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example: []
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: category
+        description: ''
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/products/{product_id}/update':
+    put:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: ''
+                  example: sed
+                description:
+                  type: string
+                  description: ''
+                  example: ullam
+                currency:
+                  type: string
+                  description: ''
+                  example: quaerat
+                price:
+                  type: string
+                  description: ''
+                  example: quia
+                brand:
+                  type: string
+                  description: ''
+                  example: ipsam
+                category:
+                  type: string
+                  description: ''
+                  example: odio
+                image:
+                  type: string
+                  description: ''
+                  example: esse
+              required:
+                - title
+                - description
+                - currency
+                - price
+                - brand
+                - category
+                - image
+      security: []
+    parameters:
+      -
+        in: path
+        name: product_id
+        description: 'The ID of the product.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/products/{product_id}/delete':
+    delete:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: product_id
+        description: 'The ID of the product.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/products/{title}/search':
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example: []
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: title
+        description: ''
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/products/category/categories:
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  products:
+                    -
+                      id: 1
+                      title: 'Adaptive 4thgeneration groupware'
+                      description: 'Unde voluptatem et architecto laborum dolore quia ut quis ut.'
+                      currency: sint
+                      price: 60
+                      brand: 'Facetoface secondary internetsolution'
+                      category: Books
+                      image: 'http://pouros.biz/non-at-corrupti-et-dicta-aut-magni-velit.html'
+                      created_at: '2022-10-08T06:16:10.000000Z'
+                      updated_at: '2022-10-08T06:16:10.000000Z'
+                    -
+                      id: 2
+                      title: 'Cloned exuding forecast'
+                      description: 'Similique et dignissimos et illo modi voluptas.'
+                      currency: dicta
+                      price: 6
+                      brand: 'Expanded secondary synergy'
+                      category: Artworks
+                      image: 'http://harber.biz/iure-est-dolorem-recusandae-magni-esse-vero-et-accusantium.html'
+                      created_at: '2022-10-08T06:16:10.000000Z'
+                      updated_at: '2022-10-08T06:16:10.000000Z'
+                    -
+                      id: 3
+                      title: 'Universal heuristic migration'
+                      description: 'Possimus quos aspernatur sint enim voluptas animi et rem.'
+                      currency: rerum
+                      price: 24577678
+                      brand: 'Decentralized explicit processimprovement'
+                      category: Devices
+                      image: 'https://konopelski.com/et-quis-tempore-maxime-porro-aliquam.html'
+                      created_at: '2022-10-08T06:16:10.000000Z'
+                      updated_at: '2022-10-08T06:16:10.000000Z'
+                    -
+                      id: 4
+                      title: 'Re-engineered cohesive matrices'
+                      description: 'Placeat quis inventore nisi aut exercitationem tenetur consectetur exercitationem.'
+                      currency: qui
+                      price: 81106348
+                      brand: 'Focused fault-tolerant matrices'
+                      category: Devices
+                      image: 'http://www.leuschke.com/error-et-deleniti-voluptatem-aliquid-ut-quibusdam-omnis-aut'
+                      created_at: '2022-10-08T06:16:10.000000Z'
+                      updated_at: '2022-10-08T06:16:10.000000Z'
+                    -
+                      id: 5
+                      title: 'Persevering analyzing internetsolution'
+                      description: 'Numquam reiciendis molestiae debitis itaque omnis consequatur.'
+                      currency: omnis
+                      price: 5789313
+                      brand: 'Synchronised real-time monitoring'
+                      category: Devices
+                      image: 'https://davis.com/eos-voluptas-odit-impedit.html'
+                      created_at: '2022-10-08T06:16:10.000000Z'
+                      updated_at: '2022-10-08T06:16:10.000000Z'
+                    -
+                      id: 6
+                      title: 'Synergistic global website'
+                      description: 'Alias sint dolor pariatur rerum ea.'
+                      currency: sint
+                      price: 3
+                      brand: 'Intuitive assymetric product'
+                      category: Devices
+                      image: 'http://www.ritchie.com/quidem-voluptatum-voluptates-consequatur-maiores-vero-quisquam-aut'
+                      created_at: '2022-10-08T06:16:10.000000Z'
+                      updated_at: '2022-10-08T06:16:10.000000Z'
+                    -
+                      id: 7
+                      title: 'Profit-focused human-resource architecture'
+                      description: 'Sunt perspiciatis tenetur rerum nulla dolorem quos repellat similique ex iste porro.'
+                      currency: blanditiis
+                      price: 445460361
+                      brand: 'Function-based dynamic time-frame'
+                      category: Clothing
+                      image: 'http://www.kautzer.com/'
+                      created_at: '2022-10-08T06:16:10.000000Z'
+                      updated_at: '2022-10-08T06:16:10.000000Z'
+                    -
+                      id: 8
+                      title: 'Reduced homogeneous intranet'
+                      description: 'Et cupiditate voluptas dolorum consequatur tenetur recusandae rerum repudiandae.'
+                      currency: nesciunt
+                      price: 694
+                      brand: 'Programmable well-modulated definition'
+                      category: Style
+                      image: 'http://www.kris.biz/'
+                      created_at: '2022-10-08T06:16:10.000000Z'
+                      updated_at: '2022-10-08T06:16:10.000000Z'
+                    -
+                      id: 9
+                      title: 'Public-key foreground ability'
+                      description: 'Voluptas aliquam tempore accusantium eaque neque consequatur adipisci.'
+                      currency: aut
+                      price: 52020
+                      brand: 'Re-engineered well-modulated paradigm'
+                      category: Style
+                      image: 'http://www.ward.com/non-culpa-laboriosam-illum-voluptatibus-sed-enim-eos'
+                      created_at: '2022-10-08T06:16:10.000000Z'
+                      updated_at: '2022-10-08T06:16:10.000000Z'
+                    -
+                      id: 10
+                      title: 'Customer-focused high-level encryption'
+                      description: 'Assumenda ipsa in nulla voluptatem ut occaecati.'
+                      currency: consequatur
+                      price: 8443041
+                      brand: 'Grass-roots client-server knowledgeuser'
+                      category: Devices
+                      image: 'http://www.gislason.com/natus-iure-omnis-officia-expedita-nihil-saepe-expedita-omnis'
+                      created_at: '2022-10-08T06:16:10.000000Z'
+                      updated_at: '2022-10-08T06:16:10.000000Z'
+                properties:
+                  products:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        title: 'Adaptive 4thgeneration groupware'
+                        description: 'Unde voluptatem et architecto laborum dolore quia ut quis ut.'
+                        currency: sint
+                        price: 60
+                        brand: 'Facetoface secondary internetsolution'
+                        category: Books
+                        image: 'http://pouros.biz/non-at-corrupti-et-dicta-aut-magni-velit.html'
+                        created_at: '2022-10-08T06:16:10.000000Z'
+                        updated_at: '2022-10-08T06:16:10.000000Z'
+                      -
+                        id: 2
+                        title: 'Cloned exuding forecast'
+                        description: 'Similique et dignissimos et illo modi voluptas.'
+                        currency: dicta
+                        price: 6
+                        brand: 'Expanded secondary synergy'
+                        category: Artworks
+                        image: 'http://harber.biz/iure-est-dolorem-recusandae-magni-esse-vero-et-accusantium.html'
+                        created_at: '2022-10-08T06:16:10.000000Z'
+                        updated_at: '2022-10-08T06:16:10.000000Z'
+                      -
+                        id: 3
+                        title: 'Universal heuristic migration'
+                        description: 'Possimus quos aspernatur sint enim voluptas animi et rem.'
+                        currency: rerum
+                        price: 24577678
+                        brand: 'Decentralized explicit processimprovement'
+                        category: Devices
+                        image: 'https://konopelski.com/et-quis-tempore-maxime-porro-aliquam.html'
+                        created_at: '2022-10-08T06:16:10.000000Z'
+                        updated_at: '2022-10-08T06:16:10.000000Z'
+                      -
+                        id: 4
+                        title: 'Re-engineered cohesive matrices'
+                        description: 'Placeat quis inventore nisi aut exercitationem tenetur consectetur exercitationem.'
+                        currency: qui
+                        price: 81106348
+                        brand: 'Focused fault-tolerant matrices'
+                        category: Devices
+                        image: 'http://www.leuschke.com/error-et-deleniti-voluptatem-aliquid-ut-quibusdam-omnis-aut'
+                        created_at: '2022-10-08T06:16:10.000000Z'
+                        updated_at: '2022-10-08T06:16:10.000000Z'
+                      -
+                        id: 5
+                        title: 'Persevering analyzing internetsolution'
+                        description: 'Numquam reiciendis molestiae debitis itaque omnis consequatur.'
+                        currency: omnis
+                        price: 5789313
+                        brand: 'Synchronised real-time monitoring'
+                        category: Devices
+                        image: 'https://davis.com/eos-voluptas-odit-impedit.html'
+                        created_at: '2022-10-08T06:16:10.000000Z'
+                        updated_at: '2022-10-08T06:16:10.000000Z'
+                      -
+                        id: 6
+                        title: 'Synergistic global website'
+                        description: 'Alias sint dolor pariatur rerum ea.'
+                        currency: sint
+                        price: 3
+                        brand: 'Intuitive assymetric product'
+                        category: Devices
+                        image: 'http://www.ritchie.com/quidem-voluptatum-voluptates-consequatur-maiores-vero-quisquam-aut'
+                        created_at: '2022-10-08T06:16:10.000000Z'
+                        updated_at: '2022-10-08T06:16:10.000000Z'
+                      -
+                        id: 7
+                        title: 'Profit-focused human-resource architecture'
+                        description: 'Sunt perspiciatis tenetur rerum nulla dolorem quos repellat similique ex iste porro.'
+                        currency: blanditiis
+                        price: 445460361
+                        brand: 'Function-based dynamic time-frame'
+                        category: Clothing
+                        image: 'http://www.kautzer.com/'
+                        created_at: '2022-10-08T06:16:10.000000Z'
+                        updated_at: '2022-10-08T06:16:10.000000Z'
+                      -
+                        id: 8
+                        title: 'Reduced homogeneous intranet'
+                        description: 'Et cupiditate voluptas dolorum consequatur tenetur recusandae rerum repudiandae.'
+                        currency: nesciunt
+                        price: 694
+                        brand: 'Programmable well-modulated definition'
+                        category: Style
+                        image: 'http://www.kris.biz/'
+                        created_at: '2022-10-08T06:16:10.000000Z'
+                        updated_at: '2022-10-08T06:16:10.000000Z'
+                      -
+                        id: 9
+                        title: 'Public-key foreground ability'
+                        description: 'Voluptas aliquam tempore accusantium eaque neque consequatur adipisci.'
+                        currency: aut
+                        price: 52020
+                        brand: 'Re-engineered well-modulated paradigm'
+                        category: Style
+                        image: 'http://www.ward.com/non-culpa-laboriosam-illum-voluptatibus-sed-enim-eos'
+                        created_at: '2022-10-08T06:16:10.000000Z'
+                        updated_at: '2022-10-08T06:16:10.000000Z'
+                      -
+                        id: 10
+                        title: 'Customer-focused high-level encryption'
+                        description: 'Assumenda ipsa in nulla voluptatem ut occaecati.'
+                        currency: consequatur
+                        price: 8443041
+                        brand: 'Grass-roots client-server knowledgeuser'
+                        category: Devices
+                        image: 'http://www.gislason.com/natus-iure-omnis-officia-expedita-nihil-saepe-expedita-omnis'
+                        created_at: '2022-10-08T06:16:10.000000Z'
+                        updated_at: '2022-10-08T06:16:10.000000Z'
+                    items:
+                      type: object
+      tags:
+        - Endpoints
+      security: []
+  '/api/products/category/{category_name}':
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example: []
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: category_name
+        description: ''
+        example: ea
+        required: true
+        schema:
+          type: string
+  /api/user:
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+tags:
+  -
+    name: Endpoints
+    description: ''
